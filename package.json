@@ -25,7 +25,9 @@
   },
   "homepage": "https://github.com/404pandas/teamProfileGenerator#readme",
   "dependencies": {
-    "inquirer": "^8.2.4",
-    "jest": "^24.9.0"
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
   }
 }
