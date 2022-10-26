@@ -7,13 +7,19 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const ARM = require("./lib/AssistantToTheRegionalManager");
+const AssistantToTheRegionalManager = require("./lib/AssistantToTheRegionalManager");
 
 // Generate HTML
 const generateHTML = require("./src/generateHTML");
 
 // Team array
 const teamArray = [];
+
+//
+const path = require("path");
+const DIST_DIR = path.resolve(__dirname, "dist");
+const distPath = path.join(DIST_DIR, "generateHTML.js");
+const render = require("./src/generateHTML");
 
 // User Prompts
 
@@ -73,25 +79,18 @@ const addManager = () => {
         name: "officeNumber",
         message: "What is the manager's office number?",
         validate: (officeNumberInput) => {
-          if (officeNumberInput) {
-            return true;
-          } else {
-            console.log("Please enter an manager's name!");
+          if (isNaN(officeNumberInput)) {
+            console.log("Please enter an office number!");
             return false;
+          } else {
+            return true;
           }
         },
-      },
-
-      {
-        type: "confirm",
-        name: "confirmAddMembers",
-        message: "Would you like to add more team members?",
-        default: false,
       },
     ])
 
     .then((managerData) => {
-      const { name, id, email, officeNumber } = managerInput;
+      const { name, id, email, officeNumber } = managerData;
       const manager = new Manager(name, id, email, officeNumber);
 
       teamArray.push(manager);
@@ -218,23 +217,42 @@ const addEmployee = () => {
       },
     ])
     .then((employeeData) => {
-      let { name, id, email, role, github, school, confirmAddEmployee } =
-        employeeData;
+      let {
+        name,
+        id,
+        email,
+        role,
+        github,
+        school,
+        officeNumber,
+        idiot,
+        bbg,
+        confirmAddEmployee,
+      } = employeeData;
       let employee;
 
       if (role === "Engineer") {
-        employee = new Engineer(name, id, email, github);
+        employee = new Engineer(name, id, email, role, github);
 
         console.log(employee);
       } else if (role === "Intern") {
-        employee = new Intern(name, id, email, school);
+        employee = new Intern(name, id, email, role, school);
 
         console.log(employee);
-      } else if (role === "Assistant To The Regional Manager") {
-        employee = new Intern(name, id, email, idiot, bbg);
+      } else if (role === "AssistantToTheRegionalManager") {
+        employee = new AssistantToTheRegionalManager(
+          name,
+          id,
+          email,
+          idiot,
+          bbg
+        );
 
         console.log(employee);
+      } else if (role === "Manager") {
+        employee = new Manager(name, id, email, role, officeNumber);
       }
+
       teamArray.push(employee);
 
       if (confirmAddEmployee) {
@@ -246,4 +264,27 @@ const addEmployee = () => {
 };
 
 // Generate HTML page
-("functionhere");
+const writeFile = (data) => {
+  fs.writeFile("./dist/index.html", data, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      console.log(
+        "Your team profile has been successfully created! Please check out the index.html"
+      );
+    }
+  });
+};
+
+addManager()
+  .then(addEmployee)
+  .then((teamArray) => {
+    return generateHTML(teamArray);
+  })
+  .then((pageHTML) => {
+    return writeFile(pageHTML);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
