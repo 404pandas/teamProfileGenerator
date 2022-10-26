@@ -1,0 +1,31 @@
+{
+  "name": "teamprofilegenerator",
+  "version": "1.0.0",
+  "description": "This is a team profile generator!",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/404pandas/teamProfileGenerator.git"
+  },
+  "keywords": [
+    "work",
+    "generator",
+    "profile"
+  ],
+  "author": "Mary Elenius",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/404pandas/teamProfileGenerator/issues"
+  },
+  "homepage": "https://github.com/404pandas/teamProfileGenerator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^24.9.0"
+  }
+}
