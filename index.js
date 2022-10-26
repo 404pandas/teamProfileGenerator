@@ -43,8 +43,8 @@ const addManager = () => {
         type: "input",
         name: "id",
         message: "What is the manager's ID?",
-        validate: (nameInput) => {
-          if (isNaN(nameInput)) {
+        validate: (idInput) => {
+          if (isNaN(idInput)) {
             console.log("Please enter the manager's ID!");
             return false;
           } else {
@@ -98,43 +98,152 @@ const addManager = () => {
       console.log(manager);
     });
 };
-// ARM
 
-// Engineer
+// Employee
+const addEmployee = () => {
+  console.log(`
+      Adding employees to the team
+      `);
 
-// Intern
+  return inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "role",
+        message: "What is the employee's role?",
+        choices: ["Engineer", "Intern", "Assistant to the Regional Manager"],
+      },
+      {
+        type: "input",
+        name: "name",
+        message: "What is the employee's name?",
+        validate: (nameInput) => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter the employee's name!");
+            return false;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is the employee's ID?",
+        validate: (nameInput) => {
+          if (isNaN(nameInput)) {
+            console.log("Please enter the employee's ID!");
+            return false;
+          } else {
+            return true;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is the employee's email?",
+        validate: (email) => {
+          valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+          if (valid) {
+            return true;
+          } else {
+            console.log("Please enter an email!");
+            return false;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "github",
+        message: "What is the employee's github username?",
+        when: (input) => input.role === "Engineer",
+        validate: (nameInput) => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter the employee's github username!");
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "school",
+        message: "Please enter the intern's school",
+        when: (input) => input.role === "Intern",
+        validate: (nameInput) => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter the intern's school!");
+          }
+        },
+      },
 
-// Manager
-// {
-//   type: "list",
-//   name: "role",
-//   message: "Please choose your manager's role",
-//   choices: ["Engineer", "Intern", "Assitant to the Regional Manager"],
-// },
+      {
+        type: "confirm",
+        name: "idiot",
+        message: "Would an idiot do that?",
+        choices: ["Yes", "No"],
+        when: (input) => input.role === "Assistant to the Regional Manager",
+        validate: (idiotInput) => {
+          if (idiotInput) {
+            return true;
+          } else {
+            console.log("Dwight, you ignorant ****!");
+          }
+        },
+      },
 
-// {
-//   type: "input",
-//   name: "github",
-//   message: "Please enter the manager's github username.",
-//   when: (input) => input.role === "Engineer",
-//   validate: (nameInput) => {
-//     if (nameInput) {
-//       return true;
-//     } else {
-//       console.log("Please enter the manager's github username!");
-//     }
-//   },
-// },
-// {
-//   type: "input",
-//   name: "school",
-//   message: "Please enter the intern's school",
-//   when: (input) => input.role === "Intern",
-//   validate: (nameInput) => {
-//     if (nameInput) {
-//       return true;
-//     } else {
-//       console.log("Please enter the intern's school!");
-//     }
-//   },
-// },
+      {
+        type: "list",
+        name: "bbbg",
+        message: "Please choose one.",
+        choices: ["Bears", "Beats", "Battlestar Galactica"],
+        when: (input) => input.role === "Assistant to the Regional Manager",
+        validate: (bbbgInput) => {
+          if (bbbgInput) {
+            return true;
+          } else {
+            console.log("Identity theft is not a joke, Jim!");
+          }
+        },
+      },
+
+      {
+        type: "confirm",
+        name: "confirmAddEmployee",
+        message: "Would you like to add more team members?",
+        default: false,
+      },
+    ])
+    .then((employeeData) => {
+      let { name, id, email, role, github, school, confirmAddEmployee } =
+        employeeData;
+      let employee;
+
+      if (role === "Engineer") {
+        employee = new Engineer(name, id, email, github);
+
+        console.log(employee);
+      } else if (role === "Intern") {
+        employee = new Intern(name, id, email, school);
+
+        console.log(employee);
+      } else if (role === "Assistant To The Regional Manager") {
+        employee = new Intern(name, id, email, idiot, bbg);
+
+        console.log(employee);
+      }
+      teamArray.push(employee);
+
+      if (confirmAddEmployee) {
+        return addEmployee(teamArray);
+      } else {
+        return teamArray;
+      }
+    });
+};
+
+// Generate HTML page
+("functionhere");
