@@ -3,27 +3,25 @@ const Manager = require("../lib/manager");
 // Creates manager object
 test("creates an manager object", () => {
   const manager = new manager(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Michael Scott",
+    "01",
+    "michael.scott@theoffice.com",
+    "01"
   );
 
   expect(manager.name).toEqual(expect.any(String));
   expect(manager.id).toEqual(expect.any(Number));
   expect(manager.email).toEqual(expect.any(String));
-  expect(manager.github).toEqual(expect.any(String));
-  expect(manager.role).toEqual(expect.any(String));
   expect(manager.officeNumber).toEqual(expect.any(String));
 });
 
 // Name
 test("gets manager name", () => {
   const employee = new Employee(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Michael Scott",
+    "01",
+    "michael.scott@theoffice.com",
+    "01"
   );
 
   expect(employee.getName()).toEqual(expect.any(String));
@@ -32,10 +30,10 @@ test("gets manager name", () => {
 // ID
 test("gets employee ID", () => {
   const manager = new Manager(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Michael Scott",
+    "01",
+    "michael.scott@theoffice.com",
+    "01"
   );
 
   expect(manager.getId()).toEqual(expect.any(Number));
@@ -44,10 +42,10 @@ test("gets employee ID", () => {
 // Email
 test("gets manager email", () => {
   const manager = new Manager(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Michael Scott",
+    "01",
+    "michael.scott@theoffice.com",
+    "01"
   );
 
   expect(manager.getEmail()).toEqual(
@@ -55,27 +53,13 @@ test("gets manager email", () => {
   );
 });
 
-// Github
-test("gets manager github value", () => {
-  const manager = new Manager(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
-  );
-
-  expect(manager.getGithub()).toEqual(
-    expect.stringContaining(manager.github.toString())
-  );
-});
-
 // Role
 test("gets role of employee", () => {
   const manager = new Manager(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Michael Scott",
+    "01",
+    "michael.scott@theoffice.com",
+    "01"
   );
 
   expect(manager.getRole()).toEqual("Manager");

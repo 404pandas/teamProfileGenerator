@@ -4,9 +4,9 @@ const Employee = require("../lib/Employee");
 // Creates employee object
 test("creates an employee object", () => {
   const employee = new employee(
-    "Toby",
+    "Toby Flenderson",
     "03",
-    "toby.theoffice@gmail",
+    "toby.flenderson@theoffice.com",
     "tobytheoffice"
   );
 
@@ -19,9 +19,9 @@ test("creates an employee object", () => {
 // Name
 test("gets employee name", () => {
   const employee = new Employee(
-    "Toby",
+    "Toby Flenderson",
     "03",
-    "toby.theoffice@gmail",
+    "toby.flenderson@theoffice.com",
     "tobytheoffice"
   );
 
@@ -31,9 +31,9 @@ test("gets employee name", () => {
 // ID
 test("gets employee ID", () => {
   const employee = new Employee(
-    "Toby",
+    "Toby Flenderson",
     "03",
-    "toby.theoffice@gmail",
+    "toby.flenderson@theoffice.com",
     "tobytheoffice"
   );
 
@@ -43,9 +43,9 @@ test("gets employee ID", () => {
 // Email
 test("gets employee email", () => {
   const employee = new Employee(
-    "Toby",
+    "Toby Flenderson",
     "03",
-    "toby.theoffice@gmail",
+    "toby.flenderson@theoffice.com",
     "tobytheoffice"
   );
 
@@ -57,9 +57,9 @@ test("gets employee email", () => {
 // Github
 test("gets employee github value", () => {
   const employee = new employee(
-    "Toby",
+    "Toby Flenderson",
     "03",
-    "toby.theoffice@gmail",
+    "toby.flenderson@theoffice.com",
     "tobytheoffice"
   );
 

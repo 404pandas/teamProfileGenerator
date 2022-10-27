@@ -81,10 +81,13 @@ const generateIntern = function (intern) {
   `;
 };
 
-// create ATTRM card
-const generateATTRM = function (AssistantToTheRegionalManager) {
+// create AssistantToTheRegionalManager card
+const generateAssistantToTheRegionalManager = function (
+  AssistantToTheRegionalManager
+) {
   return `
   <div class="snote">
+  <li>
   <img
   src="../assets/favpng_drawing-pin.png"
   id="thumbtack"
@@ -93,7 +96,7 @@ const generateATTRM = function (AssistantToTheRegionalManager) {
   alt="Red thumbtack"
 />
       <h3>${AssistantToTheRegionalManager.name}</h3>
-      <h4>Intern</h4>
+      <h4>Assistant <strike>to the</strike> Regional Manager</h4>
       <img src="../assets/doodle4.png"
       id="doodle"
       height="80"
@@ -102,7 +105,7 @@ const generateATTRM = function (AssistantToTheRegionalManager) {
     />
       <p class="id">ID: ${AssistantToTheRegionalManager.id}</p>
       <p class="email">Email:<a href="mailto:${AssistantToTheRegionalManager.email}">${AssistantToTheRegionalManager.email}</a></p>
-      <p class="school">Github: ${AssistantToTheRegionalManager.github}</p>
+      <p class="school">Github: <a href="https://github.com/${AssistantToTheRegionalManager.github}">${AssistantToTheRegionalManager.github}</p>
       
     </li>
   </div>
@@ -139,11 +142,12 @@ generateHTML = (data) => {
       pageArray.push(internCard);
     }
 
-    // call AttRM function
+    // call AssistantToTheRegionalManager function
     if (role === "AssistantToTheRegionalManager") {
-      const attrmCard = generateATTRM(employee);
+      const AssistantToTheRegionalManagerCard =
+        generateAssistantToTheRegionalManager(employee);
 
-      pageArray.push(attrmCard);
+      pageArray.push(AssistantToTheRegionalManagerCard);
     }
   }
 

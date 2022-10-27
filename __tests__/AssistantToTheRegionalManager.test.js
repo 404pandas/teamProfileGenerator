@@ -1,23 +1,28 @@
-const arm = require("../lib/arm");
+const AssistantToTheRegionalManager = require("../lib/AssistantToTheRegionalManager");
 
-// Creates arm object
-test("creates an arm object", () => {
-  const arm = new arm("Toby", "03", "toby.theoffice@gmail", "tobytheoffice");
+// Creates AssistantToTheRegionalManager object
+test("creates an AssistantToTheRegionalManager object", () => {
+  const AssistantToTheRegionalManager = new AssistantToTheRegionalManager(
+    "Dwight Schrute",
+    "02",
+    "dwight.schrute@theoffice.com",
+    "dwighttheoffice"
+  );
 
-  expect(arm.name).toEqual(expect.any(String));
-  expect(arm.id).toEqual(expect.any(Number));
-  expect(arm.email).toEqual(expect.any(String));
-  expect(arm.github).toEqual(expect.any(String));
-  expect(arm.role).toEqual(expect.any(String));
+  expect(AssistantToTheRegionalManager.name).toEqual(expect.any(String));
+  expect(AssistantToTheRegionalManager.id).toEqual(expect.any(Number));
+  expect(AssistantToTheRegionalManager.email).toEqual(expect.any(String));
+  expect(AssistantToTheRegionalManager.github).toEqual(expect.any(String));
+  expect(AssistantToTheRegionalManager.role).toEqual(expect.any(String));
 });
 
 // Name
 test("gets employee name", () => {
   const employee = new Employee(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Dwight Schrute",
+    "02",
+    "dwight.schrute@theoffice.com",
+    "dwighttheoffice"
   );
 
   expect(employee.getName()).toEqual(expect.any(String));
@@ -25,18 +30,23 @@ test("gets employee name", () => {
 
 // ID
 test("gets employee ID", () => {
-  const arm = new ARM("Toby", "03", "toby.theoffice@gmail", "tobytheoffice");
+  const AssistantToTheRegionalManager = new AssistantToTheRegionalManager(
+    "Dwight Schrute",
+    "02",
+    "dwight.schrute@theoffice.com",
+    "dwighttheoffice"
+  );
 
-  expect(arm.getId()).toEqual(expect.any(Number));
+  expect(AssistantToTheRegionalManager.getId()).toEqual(expect.any(Number));
 });
 
 // Email
 test("gets employee email", () => {
   const employee = new Employee(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Dwight Schrute",
+    "02",
+    "dwight.schrute@theoffice.com",
+    "dwighttheoffice"
   );
 
   expect(employee.getEmail()).toEqual(
@@ -45,17 +55,29 @@ test("gets employee email", () => {
 });
 
 // Github
-test("gets arm github value", () => {
-  const arm = new arm("Toby", "03", "toby.theoffice@gmail", "tobytheoffice");
+test("gets AssistantToTheRegionalManager github value", () => {
+  const AssistantToTheRegionalManager = new AssistantToTheRegionalManager(
+    "Dwight Schrute",
+    "02",
+    "dwight.schrute@theoffice.com",
+    "dwighttheoffice"
+  );
 
-  expect(arm.getGithub()).toEqual(
-    expect.stringContaining(arm.github.toString())
+  expect(AssistantToTheRegionalManager.getGithub()).toEqual(
+    expect.stringContaining(AssistantToTheRegionalManager.github.toString())
   );
 });
 
 // Role
-test("gets role of arm", () => {
-  const arm = new arm("Toby", "03", "toby.theoffice@gmail", "tobytheoffice");
+test("gets role of AssistantToTheRegionalManager", () => {
+  const AssistantToTheRegionalManager = new AssistantToTheRegionalManager(
+    "Dwight Schrute",
+    "02",
+    "dwight.schrute@theoffice.com",
+    "dwighttheoffice"
+  );
 
-  expect(arm.getRole()).toEqual("arm");
+  expect(AssistantToTheRegionalManager.getRole()).toEqual(
+    "AssistantToTheRegionalManager"
+  );
 });

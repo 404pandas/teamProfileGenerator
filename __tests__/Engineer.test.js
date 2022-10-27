@@ -3,10 +3,10 @@ const engineer = require("../lib/engineer");
 // Creates engineer object
 test("creates an engineer object", () => {
   const engineer = new engineer(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Pam Beasley",
+    "04",
+    "pam.beasley@theoffice.com",
+    "notareceptionist"
   );
 
   expect(engineer.name).toEqual(expect.any(String));
@@ -19,10 +19,10 @@ test("creates an engineer object", () => {
 // Name
 test("gets employee name", () => {
   const employee = new Employee(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Pam Beasley",
+    "04",
+    "pam.beasley@theoffice.com",
+    "notareceptionist"
   );
 
   expect(employee.getName()).toEqual(expect.any(String));
@@ -31,10 +31,10 @@ test("gets employee name", () => {
 // ID
 test("gets employee ID", () => {
   const employee = new Employee(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Pam Beasley",
+    "04",
+    "pam.beasley@theoffice.com",
+    "notareceptionist"
   );
 
   expect(employee.getId()).toEqual(expect.any(Number));
@@ -43,10 +43,10 @@ test("gets employee ID", () => {
 // Email
 test("gets employee email", () => {
   const employee = new Employee(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Pam Beasley",
+    "04",
+    "pam.beasley@theoffice.com",
+    "notareceptionist"
   );
 
   expect(employee.getEmail()).toEqual(
@@ -57,10 +57,10 @@ test("gets employee email", () => {
 // Github
 test("gets engineer github value", () => {
   const engineer = new engineer(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Pam Beasley",
+    "04",
+    "pam.beasley@theoffice.com",
+    "notareceptionist"
   );
 
   expect(engineer.getGithub()).toEqual(
@@ -71,10 +71,10 @@ test("gets engineer github value", () => {
 // Role
 test("gets role of engineer", () => {
   const engineer = new engineer(
-    "Toby",
-    "03",
-    "toby.theoffice@gmail",
-    "tobytheoffice"
+    "Pam Beasley",
+    "04",
+    "pam.beasley@theoffice.com",
+    "notareceptionist"
   );
 
   expect(engineer.getRole()).toEqual("engineer");

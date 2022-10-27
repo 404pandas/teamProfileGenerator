@@ -3,7 +3,6 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 
 // Team
-const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -14,12 +13,6 @@ const generateHTML = require("./src/generateHTML");
 
 // Team array
 const teamArray = [];
-
-//
-const path = require("path");
-const DIST_DIR = path.resolve(__dirname, "dist");
-const distPath = path.join(DIST_DIR, "generateHTML.js");
-const render = require("./src/generateHTML");
 
 // User Prompts
 
@@ -157,6 +150,18 @@ const addEmployee = () => {
         name: "github",
         message: "What is the employee's github username?",
         when: (input) => input.role === "Engineer",
+        validate: (nameInput) => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter the employee's github username!");
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "github",
+        message: "What is the employee's github username?",
         when: (input) => input.role === "Assistant To The Regional Manager",
         validate: (nameInput) => {
           if (nameInput) {
@@ -226,8 +231,6 @@ const addEmployee = () => {
         github,
         school,
         officeNumber,
-        idiot,
-        bbg,
         confirmAddEmployee,
       } = employeeData;
       let employee;
@@ -241,13 +244,7 @@ const addEmployee = () => {
 
         console.log(employee);
       } else if (role === "Assistant To The Regional Manager") {
-        employee = new AssistantToTheRegionalManager(
-          name,
-          id,
-          email,
-          idiot,
-          bbg
-        );
+        employee = new AssistantToTheRegionalManager(name, id, email, github);
 
         console.log(employee);
       } else if (role === "Manager") {
