@@ -49,8 +49,8 @@ const addManager = () => {
         type: "input",
         name: "id",
         message: "What is the manager's ID?",
-        validate: (idInput) => {
-          if (isNaN(idInput)) {
+        validate: (nameInput) => {
+          if (isNaN(nameInput)) {
             console.log("Please enter the manager's ID!");
             return false;
           } else {
@@ -78,8 +78,8 @@ const addManager = () => {
         type: "input",
         name: "officeNumber",
         message: "What is the manager's office number?",
-        validate: (officeNumberInput) => {
-          if (isNaN(officeNumberInput)) {
+        validate: (nameInput) => {
+          if (isNaN(nameInput)) {
             console.log("Please enter an office number!");
             return false;
           } else {
@@ -110,7 +110,7 @@ const addEmployee = () => {
         type: "list",
         name: "role",
         message: "What is the employee's role?",
-        choices: ["Engineer", "Intern", "Assistant to the Regional Manager"],
+        choices: ["Engineer", "Intern", "Assistant To The Regional Manager"],
       },
       {
         type: "input",
@@ -157,6 +157,7 @@ const addEmployee = () => {
         name: "github",
         message: "What is the employee's github username?",
         when: (input) => input.role === "Engineer",
+        when: (input) => input.role === "Assistant To The Regional Manager",
         validate: (nameInput) => {
           if (nameInput) {
             return true;
@@ -184,9 +185,9 @@ const addEmployee = () => {
         name: "idiot",
         message: "Would an idiot do that?",
         choices: ["Yes", "No"],
-        when: (input) => input.role === "Assistant to the Regional Manager",
-        validate: (idiotInput) => {
-          if (idiotInput) {
+        when: (input) => input.role === "Assistant To The Regional Manager",
+        validate: (nameInput) => {
+          if (nameInput) {
             return true;
           } else {
             console.log("Dwight, you ignorant ****!");
@@ -199,9 +200,9 @@ const addEmployee = () => {
         name: "bbbg",
         message: "Please choose one.",
         choices: ["Bears", "Beats", "Battlestar Galactica"],
-        when: (input) => input.role === "Assistant to the Regional Manager",
-        validate: (bbbgInput) => {
-          if (bbbgInput) {
+        when: (input) => input.role === "Assistant To The Regional Manager",
+        validate: (nameInput) => {
+          if (nameInput) {
             return true;
           } else {
             console.log("Identity theft is not a joke, Jim!");
@@ -239,7 +240,7 @@ const addEmployee = () => {
         employee = new Intern(name, id, email, role, school);
 
         console.log(employee);
-      } else if (role === "AssistantToTheRegionalManager") {
+      } else if (role === "Assistant To The Regional Manager") {
         employee = new AssistantToTheRegionalManager(
           name,
           id,

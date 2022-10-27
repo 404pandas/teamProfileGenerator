@@ -4,13 +4,7 @@
 /*       Universal selector       */
 /* ****************************** */
 * {
-}
-
-/* ****************************** */
-/*        Color selectors         */
-/* ****************************** */
-:root {
-  --variableName: #000000;
+  box-sizing: border-box;
 }
 
 /* ****************************** */
@@ -19,75 +13,139 @@
 
 /*Header formatting, font, and color*/
 header {
+  font-size: xx-large;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 60px;
 }
 
 /*Background formatting, font, and color*/
-body {
-}
-
-/* Heading formatting, font, and color */
-h1 {
-}
-
-/* Aside headers formatting, font, and color */
-aside {
-}
-
-/*Nav bar within header formatting, font, and color*/
-nav {
-}
-
-/* Section formatting */
-section {
-}
-
-/* Article formatting */
-article {
-}
-
-/*Paragraph formatting, font, and color*/
-p {
+main {
+  background-image: url(../assets/AdobeStock_304516500.jpeg);
+  background-size: cover;
+  min-height: 768px;
 }
 
 /* ****************************** */
 /*        Class selectors         */
 /* ****************************** */
 
-/*Header formatting, font, and color*/
-.header {
+.team-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-/*Background formatting, font, and color*/
-.body {
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-/* Heading formatting, font, and color */
-.h1 {
+/* CSS for sticky notes*/
+
+.snote {
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
 }
 
-/* Aside headers formatting, font, and color */
-.aside {
+.snote p {
+  font-size: 100%;
+  font-weight: normal;
 }
 
-/*Nav bar within header formatting, font, and color*/
-.nav {
+.snote ul div li {
+  list-style: none;
+  display: flex;
 }
 
-/* Section formatting */
-.section {
+.snote ul {
+  overflow: hidden;
+  padding: 3em;
+  display: flex;
+  flex-direction: row;
 }
 
-/* Article formatting */
-.article {
+.snote ul div li {
+  text-decoration: none;
+  color: #000;
+  background: #ffc;
+  display: block;
+  height: 15em;
+  width: 12em;
+  padding: 1em;
+  -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+  box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+  -webkit-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -moz-transition: -moz-transform 0.15s linear;
+  -o-transition: -o-transform 0.15s linear;
+  -webkit-transition: -webkit-transform 0.15s linear;
 }
 
-/*Paragraph formatting, font, and color*/
-.p {
+.snote ul div li:hover,
+ul div li:focus {
+  -moz-box-shadow: 3 3 3 rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 3 3 3 rgba(0, 0, 0, 0.7);
+  box-shadow: 3 3 3 rgba(0, 0, 0, 0.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  position: relative;
+  z-index: 5;
+}
+
+.snote ul div li {
+  margin: 1em;
+  float: left;
+}
+
+.snote ul div li h3 {
+  font-size: 150%;
+  font-weight: bold;
+  padding-bottom: 0px;
+  font-family: Oswald;
+  text-align: center;
+  color: #000;
+}
+
+.snote ul div li h4 {
+  font-size: 120%;
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 0px;
+  font-family: oswald;
+  text-align: center;
+  color: black;
+}
+
+.snote ul div li p {
+  font-family: arial, sans-serif;
+  font-size: 100%;
+  color: #000;
 }
 
 /* ****************************** */
 /*          ID selectors          */
 /* ****************************** */
+
+#doodle {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  display: block;
+}
+
+#thumbtack {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  display: block;
+}
+
 /*Header formatting, font, and color*/
 #header {
 }
